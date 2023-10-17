@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Página de Ejemplo</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="/output.css" rel="stylesheet">
+        <link href="{% static '/movies/assets/css/output.css' %}" rel="stylesheet">
     </head>
     <body class="font-sans max-w-4xl mx-auto">
     <header class="h-12 w-full text-center mx-auto mt-5 border-b-2 border-sky-500">
@@ -13,7 +14,7 @@
     
     <article>
         <div class="flex h-[32rem] bg-slate-200 my-4">
-            <img class="" src="img/imigame.jpg" alt="the imitation game poster">
+            <img class="" src="{% static '/movies/assets/img/imigame.jpg' %}" alt="the imitation game poster">
             <header>
             <h1 class="movie-title"> The Imitation Game</h1>
             <div class="movie-info">
@@ -45,11 +46,11 @@
         <h1>Top Billed Cast</h1>
         <div class="cast"> 
             <div class="cast-item"> 
-                <img src="img/cumberbatch.jpg" alt="Benedict Cumberbatch photo">
+                <img src="{% static '/movies/assets/img/cumberbatch.jpg' %}" alt="Benedict Cumberbatch photo">
                 <h1> Benedict Cumberbatch</h1>
             </div>
             <div class="cast-item"> 
-                <img src="img/knightley.jpg" alt="Keira Knightley photo">
+                <img src="{% static '/movies/assets/img/knightley.jpg' %}" alt="Keira Knightley photo">
                 <h1> Keira Knightley</h1>
             </div>
         </div>
