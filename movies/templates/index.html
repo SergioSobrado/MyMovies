@@ -1,65 +1,38 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Página de Ejemplo</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="{% static '/movies/assets/css/output.css' %}" rel="stylesheet">
-    </head>
-    <body class="font-sans max-w-4xl mx-auto">
-    <header class="h-12 w-full text-center mx-auto mt-5 border-b-2 border-sky-500">
-        <h1 class="font-medium text-3xl text-red-600">My Movies</h1>
+<head>
+    <title>MY MOVIES</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static '/movies/assets/css/output.css' %}" rel="stylesheet">
+    <script src="{% static '/movies/assets/js/script.js' %}"></script>
+</head>
+<body>
+    <header class="w-full text-white bg-slate-900 flex items-center justify-start border-b ">  
+        <img style="width: 200px; height: 100px;" src="{% static '/movies/assets/img/MyMoviesLogo.png' %}" alt="MyMoviesLogo">
     </header>
-    
-    <article>
-        <div class="flex h-[32rem] bg-slate-200 my-4">
-            <img class="" src="{% static '/movies/assets/img/imigame.jpg' %}" alt="the imitation game poster">
-            <header>
-            <h1 class="movie-title"> The Imitation Game</h1>
-            <div class="movie-info">
-                <p>  12/19/2014 -</p> 
-                <ul class="movie-genre"> 
-                    <li> History | </li>
-                    <li> Drama | </li>
-                    <li> Thriller | </li>
-                    <li> War </li>
-                </ul>
-                <p>- 1h 53m</p>  
-            </div>         
-            
-            <h1>Overview</h1>
-            <p>Based on the real life story of legendary cryptanalyst Alan
-            Turing, the film portrays the nail-biting race against time by
-            Turing and his brilliant team of code-breakers at Britain's
-            top-secret Government Code and Cypher School at Bletchley Park,
-            during the darkest days of World War II.</p>
-
-            <details>
-                <summary>Production Details</summary>
-                <p> Budget: $14,000,000.00 </p>
-                <p> Revenue: $233,555,708.00</p>
-            </details>
-            </header>
+    <main class="bg-slate-900 px-10 pt-16" style="height: auto;">
+        <h2 class="uppercase tracking-wider text-orange-500 text-lg font-semibold border-y-4 text-center">Popular movies</h2>
+        <div class="flex gap-2 w-100 pt-2 flex-wrap" style="height: auto;">
+        {% for mov in movie_list %}
+        <a href="/{{mov.tmdb_id}}" style="max-width: 262px;" class="flex flex-wrap">
+            <ul>
+                <div class="bg-slate-800 border-slate-900 border sm:rounded-3xl shadow-2xl hover:bg-gray-700 active:bg-slate-800 gap-2 p-2 flex flex-col items-center justify-center hover:filter brightness-90 hover:brightness-95 active:brightness-90">
+                    <h2 class="w-fit font-bold text-white p-1">{{mov.title}}</h2> 
+                    <img class="rounded-2xl shadow-lg w-fit p-1" src="https://image.tmdb.org/t/p/w200{{mov.poster_path}}" id="botton_img">
+                    <span class="bg-gray-100 font-bold rounded-xl p-1 h-auto w-fit">{{mov.tmdb_id}}</span> 
+                </div>  
+            </ul>  
+        </a>        
+        {% endfor %}
         </div>
-
-        <h1>Top Billed Cast</h1>
-        <div class="cast"> 
-            <div class="cast-item"> 
-                <img src="{% static '/movies/assets/img/cumberbatch.jpg' %}" alt="Benedict Cumberbatch photo">
-                <h1> Benedict Cumberbatch</h1>
-            </div>
-            <div class="cast-item"> 
-                <img src="{% static '/movies/assets/img/knightley.jpg' %}" alt="Keira Knightley photo">
-                <h1> Keira Knightley</h1>
-            </div>
-        </div>
-    </article>
-
-    <footer>
-        <p> Proyecto de ejemplo de la materia Programación Web</p>
-        <p><a href="github.com\miusuario\elrepo"> GitHub Repository</a></p>
-    </footer>
-
-    </body>
+    </main>
+<footer class= "text-center justify-center bg-slate-900 ">
+    <p class= "text-white font-semibold text-sm"> Proyecto de ejemplo de la materia Programación Web</p>
+</footer>
+</body>
+   
 </html>
+
+

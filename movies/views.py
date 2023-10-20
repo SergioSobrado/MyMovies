@@ -7,7 +7,7 @@ def index(request):
     context = {'movie_list': movies}
     return render(request, './index.html', context)
 
-def movies(request, movie_id):
-    movie = Movie.objects.get(pk=movie_id)
+def movies(request, tmdb_id):
+    movie = Movie.objects.get(tmdb_id=tmdb_id)
     context = {'movie': movie}
     return render(request, './movie.html', context)
