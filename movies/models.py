@@ -13,6 +13,7 @@ class Genre(models.Model):
 
 class Job(models.Model):
     name = models.CharField(max_length=200)
+    profile_path=models.URLField(blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -20,6 +21,9 @@ class Job(models.Model):
 
 class Person(models.Model):
     name = models.CharField(max_length=128)
+    poster_path = models.URLField(blank=True, null=True)
+    biography = models.CharField(max_length=400, blank=True)
+
 
     def __str__(self):
         return self.name
@@ -42,9 +46,9 @@ class Movie(models.Model):
 
 
 class MovieCredit(models.Model):
-    person = models.ForeignKey(Person, on_delete=models.CASCADE)
+    person = models.ForeignKey(Person, on_delete=models.CASCADE, unique=False)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
-    job = models.ForeignKey(Job, on_delete=models.CASCADE)
+    job = models.ForeignKey(Job, on_delete=models.CASCADE, unique=False)
 
 
 class MovieReview(models.Model):

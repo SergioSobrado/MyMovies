@@ -1,11 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static '/movies/assets/css/output.css' %}">
+    <title>{{person.name}}</title>
 </head>
 <body>
-    
+     <header class="w-full text-white bg-slate-900 flex items-center justify-start border-b ">  
+        <img style="width: 200px; height: 100px;" src="{% static '/movies/assets/img/MyMoviesLogo.png' %}" alt="MyMoviesLogo">
+    </header>
+    <main class="bg-slate-900 px-10 pt-16 min-h-screen overflow-x-auto">
+        <section class="bg-slate-700 min-h-fit w-auto flex mx-24  h-">
+          <img class="flex justify-center" src="https://image.tmdb.org/t/p/w200/{{person.poster_path}}" alt="Imagen de Casting">
+          <div >
+            <h2 style="font-weight: 500;" class="text-white text-4xl p-6">{{person.name}}</h2>
+            <div class="text-gray-200 p-6 flex flex-col max-w-7xl mx-auto">
+                <h3 class="font-bold text-lg ">Biografía</h3>
+                <p>Alberto Catesta fue un escritor y periodista colombiano. Reconocido principalmente por sus novelas y cuentos, también escribió narrativa de no ficción, discursos, reportajes, críticas cinematográficas y memorias.</p>
+            </div> 
+          </div>
+        </section>
 </body>
 </html>

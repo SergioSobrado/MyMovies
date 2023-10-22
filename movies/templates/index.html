@@ -14,7 +14,7 @@
     </header>
     <main class="bg-slate-900 px-10 pt-16" style="height: auto;">
         <h2 class="uppercase tracking-wider text-orange-500 text-lg font-semibold border-y-4 text-center">Popular movies</h2>
-        <div class="flex gap-2 w-100 pt-2 flex-wrap" style="height: auto;">
+        <div class="flex gap-2 w-100 pt-2 flex-wrap min-h-screen" style="height: auto;">
         {% for mov in movie_list %}
         <a href="/{{mov.tmdb_id}}" style="max-width: 262px;" class="flex flex-wrap">
             <ul>

@@ -1,11 +1,56 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="{% static '/movies/assets/css/output.css' %}" rel="stylesheet">
+    <script src="{% static '/movies/assets/js/script.js' %}"></script>
+    <title>{{movie.title}}</title>
 </head>
 <body>
-    
+    <header class="w-full text-white bg-slate-900 flex items-center justify-start border-b ">  
+        <img style="width: 200px; height: 100px;" src="{% static '/movies/assets/img/MyMoviesLogo.png' %}" alt="MyMoviesLogo">
+    </header>
+    <main class="bg-slate-900 px-10 pt-16 min-h-screen overflow-x-auto">
+        <section class="bg-slate-700 min-h-fit w-auto flex mx-24  h-auto">
+          <img class="p-5 max-h-96" src="https://image.tmdb.org/t/p/w200{{movie.poster_path}}">
+          <div>
+            <h2 class="flex font-bold ">
+            <a class="text-white text-4xl pt-5 pr-2">{{movie.title}}</a>
+            <span class="text-gray-400 text-xl pt-8">{{movie.release_date|date:"Y"}}</span>
+            </h2>
+            <div class="text-gray-200 flex">
+              <span class="px-1">{{movie.release_date}} </span>
+              {% for genre in movie.genres.all %}
+              <span class="px-1">| {{genre.name}}</span>
+              {% endfor %}
+              <span class="px-1">| {{movie.running_time}} minutos</span>
+            </div>
+            <div class="text-gray-200 p-6 flex flex-col max-w-7xl mx-auto">
+                <h3 class="font-bold text-lg ">Overview</h3>
+                <a>{{movie.overview}}</a>
+            </div>
+            <div class="text-gray-200 flex flex-col pb-4">
+                <span class="mt-auto font-bold"> Presupuesto: ${{movie.budget}} </span>
+                <span class="mt-auto font-bold"> Ganancia: ${{movie.revenue}} </span>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2 class="text-white text-xl font-extrabold underline text-center p-10" href="/">Reparto y equipo completo</h2>
+          <div class="w-full" style="gap: 4px; display: grid; grid-template-columns:repeat(6, 1fr) ;">
+              {% for credit in credits %}
+              <a href="/{{credit.person.name}}">
+              <div class="bg-slate-700 rounded-2xl flex flex-col w-full justify-center items-center">
+                <h2 class="pt-3 text-white font-bold text-lg">{{credit.person.name}}</h2>
+                <span class="pb-3 text-gray-300 font-semibold">{{credit.job.name}}</span>
+                <img class="flex justify-center" src="https://image.tmdb.org/t/p/w500/{{credit.person.poster_path}}" alt="Imagen de Casting">
+              </div>
+              </a>
+              {% endfor %}
+          </div>
+      </section>
+    </main>
 </body>
 </html>
