@@ -14,18 +14,20 @@
     </header>
     <main class="bg-slate-900 px-10 pt-16" style="height: auto;">
         <h2 class="uppercase tracking-wider text-orange-500 text-lg font-semibold border-y-4 text-center">Popular movies</h2>
-        <div class="flex gap-2 w-100 pt-2 flex-wrap min-h-screen" style="height: auto;">
-        {% for mov in movie_list %}
-        <a href="/{{mov.tmdb_id}}" style="max-width: 262px;" class="flex flex-wrap">
-            <ul>
-                <div class="bg-slate-800 border-slate-900 border sm:rounded-3xl shadow-2xl hover:bg-gray-700 active:bg-slate-800 gap-2 p-2 flex flex-col items-center justify-center hover:filter brightness-90 hover:brightness-95 active:brightness-90">
-                    <h2 class="w-fit font-bold text-white p-1">{{mov.title}}</h2> 
-                    <img class="rounded-2xl shadow-lg w-fit p-1" src="https://image.tmdb.org/t/p/w200{{mov.poster_path}}" id="botton_img">
-                    <span class="bg-gray-100 font-bold rounded-xl p-1 h-auto w-fit">{{mov.tmdb_id}}</span> 
-                </div>  
-            </ul>  
-        </a>        
-        {% endfor %}
+        <div class="flex flex-wrap w-100 gap-2 pt-2 min-h-screen justify-center" style="height: auto;">
+            {% for mov in movie_list %}
+            <a href="/{{mov.tmdb_id}}">
+                <ul>
+                    <div class="bg-slate-800 border-slate-900 border sm:rounded-3xl shadow-2xl hover:bg-gray-700 active:bg-slate-800 gap-2 p-2 " style="height:425px; width:230px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <h2 class="w-full font-bold text-white p-1 text-center">{{mov.title}}</h2>
+                        <div class="flex flex-col items-center">
+                            <img class="rounded-2xl shadow-lg w-fit p-1" src="https://image.tmdb.org/t/p/w200{{mov.poster_path}}" id="botton_img">
+                            <span class="bg-gray-100 font-bold rounded-xl p-1 h-auto w-fit">{{mov.tmdb_id}}</span> 
+                        </div>
+                    </div>
+                </ul>  
+            </a>        
+            {% endfor %}
         </div>
     </main>
 <footer class= "text-center justify-center bg-slate-900 ">

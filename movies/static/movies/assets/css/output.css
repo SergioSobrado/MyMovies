@@ -792,6 +792,10 @@ select {
   gap: 1rem;
 }
 
+.gap-10 {
+  gap: 2.5rem;
+}
+
 .overflow-x-auto {
   overflow-x: auto;
 }
