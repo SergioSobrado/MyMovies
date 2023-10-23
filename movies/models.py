@@ -22,7 +22,7 @@ class Job(models.Model):
 class Person(models.Model):
     name = models.CharField(max_length=128)
     poster_path = models.URLField(blank=True, null=True)
-    biography = models.CharField(max_length=400, blank=True)
+    biography = models.CharField(max_length=2000, blank=True)
 
 
     def __str__(self):
