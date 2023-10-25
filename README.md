@@ -8,3 +8,11 @@ Elaboracion de una página web la cual esta conectada a una base de datos de Pos
 - Se agregó un nuevo request que le solicita a la API la información de persons y este nuevo request trae la bibliografía de persons y se agraga de igual forma a la base de datos.
 
 ### Imágenes 
+Pagina principal
+![Pagina Principal](Imagenes/Pagina%20Principal.png)
+
+Vista Detalla de pelicula
+![Vista detallada](Imagenes/Vista%20Detallada.png)
+
+Vista detallada del actor
+![Actor](Imagenes/Vista%20de%20actor.png)
